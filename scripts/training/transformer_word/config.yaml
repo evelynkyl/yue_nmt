@@ -1,0 +1,77 @@
+
+name: "word_copy_2_trans"
+
+data:
+    src: "zh"
+    trg: "yue"
+    train: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/train"
+    dev: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/valid"
+    test: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/test" #detokenized
+    level: "word"
+    lowercase: False
+    max_sent_length: 250
+    src_voc_min_freq: 1
+    trg_voc_min_freq: 1
+   
+testing:
+    beam_size: 12
+    alpha: 1.0
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    adam_betas: [0.9, 0.99]
+    loss: "crossentropy"
+    learning_rate: 0.0002
+    learning_rate_min: 0.00000001
+    learning_rate_factor: 2
+    learning_rate_warmup: 5000
+    batch_type: "sentence"
+    weight_decay: 0.0
+    label_smoothing: 0.1
+    batch_size: 10
+    early_stopping_metric: "eval_metric"
+    epochs: 100
+    validation_freq: 1000
+    logging_freq: 100
+    eval_metric: "bleu"
+    model_dir: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/models/zhyue_transformer_copy_word_2"
+    overwrite: True
+    shuffle: True
+    use_cuda: True
+    fp16: True
+    max_output_length: 200
+    print_valid_sents: [0, 1, 2, 3, 4]
+
+model:
+    initializer: "xavier"
+    embed_initializer: "xavier"
+    embed_init_gain: 1.0
+    init_gain: 1.0
+    bias_initializer: "zeros"
+    tied_embeddings: False
+    tied_softmax: False
+    encoder:
+      type: "transformer"
+      num_layers: 1
+      num_heads: 2
+      embeddings:
+        embedding_dim: 128
+        scale: True
+        dropout: 0.3
+      hidden_size: 128
+      ff_size: 512
+      dropout: 0.25
+    decoder:
+      type: "transformer"
+      num_layers: 2
+      num_heads: 2
+      embeddings:
+        embedding_dim: 128
+        scale: True
+        dropout: 0.3
+      hidden_size: 128
+      ff_size: 512
+      dropout: 0.25
+
+
