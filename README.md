@@ -16,6 +16,8 @@ The development of NLP applications for Cantonese, a language with over 85 milli
           - BPE represenation
     3. Unsupervised NMT via Language Model Pre-training and Transfer Learning
 
+*Note: The script of finetuning mBART is also included; however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
+
 ## Result
 |  Model          | SacreBLEU  | 
 | --------------  | ---------- |
@@ -63,7 +65,7 @@ cd fairseq
 pip install --editable ./
 cd ~
 ```
-*note: It is HIGHLY recommended to use half precision (using Apex) by simply adding --fp16 True --amp 1 flags to each running command. Without it, you might run out of memory.
+*Note: It is HIGHLY recommended to use half precision (using Apex) by simply adding --fp16 True --amp 1 flags to each running command. Without it, you might run out of memory.
 
 ### Implentation
 #### BiLSTM or Transformer (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
