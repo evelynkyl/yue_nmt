@@ -79,10 +79,8 @@ python3  /yue_nmt/UNMT_via_RELM/relm_unmt/train.py \
 
 ### 3. Train a UNMT model (encoder and decoder initialized with RE-LM + adapters)
 The fine-tuned model checkpoint (finetune_zh_mlm_yue_adapters) can be found [here](https://drive.google.com/file/d/1I939PPedFsC6IxtnZasY51bY6tVcr7Et/view?usp=sharing)
+
 ```
---optimizer adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001 --epoch_size 5000 --eval_bleu true --beam_size 5 --stopping_criterion valid_yue-zh_mt_bleu,10 --validation_metrics valid_yue-zh_mt_bleu --increase_vocab_for_lang zh --increase_vocab_from_lang yue
-
-
 python3  /yue_nmt/UNMT_via_RELM/relm_unmt/train.py \
 --exp_name unsupMT_ft_yue \
 --dump_path /yue_nmt/UNMT_via_RELM/models/ \
