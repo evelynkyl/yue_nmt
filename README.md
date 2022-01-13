@@ -35,12 +35,16 @@ It will perform PSM from Wikipedia backup files, concatenate the UD synthetic da
 ## Data
 |  Model   | Data    |  Size (Sentence pair)   |  Ratio (Train/Validation/Test) |
 | --------  | ------- | ------------------------| ------------------------------ |
-| Baseline |  [Parallel data of Cantonese and Mandarin Chinese](https://github.com/UniversalDependencies/UD_Cantonese-HK) (UD) | 1,002 | 80/10/10 |
+| Baseline |  [Cantonese and Mandarin Chinese Parallel Corpus](https://github.com/UniversalDependencies/UD_Cantonese-HK) (UD) | 1,002 | 80/10/10 |
 | Experimental models | UD+PSM | 35,877 | 68/15/17 |
 
 ## NMT Model Training
 ### Preliminary
-1. Split data into training, evaluation, and test sets
+1. Clone current repo
+```
+git clone https://github.com/evelynkyl/yue_nmt
+```
+2. Split data into training, evaluation, and test sets
 ```
 mkdir /yue_nmt/bitext_mining/data/bitext_and_ud/split
 python3 split_data.py
@@ -53,7 +57,7 @@ cd apex
 pip install -v --disable-pip-version-check --no-cache-dir ./
 cd ~
 
-# faiseq
+# faiseq (for machine translation)
 git clone https://github.com/pytorch/fairseq
 cd fairseq
 pip install --editable ./
