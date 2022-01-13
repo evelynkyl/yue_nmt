@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-target_dir = "/rd_nmt/bitext_mining/data/bitext_and_ud/"
+target_dir = "/yue_nmt/bitext_mining/data/bitext_and_ud/"
 
 def df_to_txt(some_df, lang, targetdir, filename="train.yue"):
     """ Save the training and test set as .txt to make a training/valid/test set """
