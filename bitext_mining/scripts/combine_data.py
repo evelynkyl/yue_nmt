@@ -9,7 +9,7 @@ def read_and_assign_list(infile): # as list of sentences
 
 def main():
     # 1. Load the mined sentence zip file
-    tsv_data = pd.read_csv("/rd_nmt/bitext_mining/data/mining_results/parallel-sentences-out.tsv", sep='\t', header=None)
+    tsv_data = pd.read_csv("/yue_nmt/bitext_mining/data/mining_results/parallel-sentences-out.tsv", sep='\t', header=None)
     tsv_data1 = tsv_data.rename(columns={0: 'score', 1: 'zh', 2: 'yue'})
 
     # Filter out low quality sentence, the threshold is set to 1.1286
@@ -25,7 +25,7 @@ def main():
     
     
     # 2. Load the UD data
-    datadir="/rd_nmt/bitext_mining/data/UD"
+    datadir="/yue_nmt/bitext_mining/data/UD"
     test_yue = read_and_assign_list("test.yue") 
     test_zh = read_and_assign_list("test.zh") 
     val_yue = read_and_assign_list("val.yue")
@@ -43,7 +43,7 @@ def main():
     cated_df = pd.DataFrame(list(zip(all_yue, all_zh)), columns = ['yue', 'zh'])
 
     # pickle the data
-    cated_df.to_pickle("/rd_nmt/bitext_mining/data/bitext_and_ud/yue_zh_combined36k.pkl")
+    cated_df.to_pickle("/yue_nmt/bitext_mining/data/bitext_and_ud/yue_zh_combined36k.pkl")
     
 if __name__ == '__main__':
     main()
