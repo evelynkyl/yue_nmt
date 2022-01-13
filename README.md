@@ -49,7 +49,7 @@ git clone https://github.com/evelynkyl/yue_nmt
 mkdir /yue_nmt/bitext_mining/data/bitext_and_ud/split
 python3 split_data.py
 ```
-2. Install dependencies for model training
+3. Install dependencies for model training
 ```
 # apex (for fp16 training)
 git clone https://github.com/NVIDIA/apex
@@ -66,17 +66,17 @@ cd ~
 *note: It is HIGHLY recommended to use half precision (using Apex) by simply adding --fp16 True --amp 1 flags to each running command. Without it, you might run out of memory.
 
 ### Implentation
-##### BiLSTM or Transformer based (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
+#### BiLSTM or Transformer based (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
 Scripts of the model parameters can be found in [/yue_nmt/scripts/training](https://github.com/evelynkyl/yue_nmt/scripts/training).
 To train a model, run the command below
 ```
 python3 -m joeynmt train {config.yaml}
 ```
-##### Transfer learning (via [RELM](https://github.com/alexandra-chron/relm_unmt))
+#### Transfer learning (via [RELM](https://github.com/alexandra-chron/relm_unmt))
 Please refer to [UNMT_via_RELM](https://github.com/evelynkyl/yue_nmt/UNMT_via_RELM).
 
 ### Evaluation
-##### BiLSTM or Transformer based (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
+#### BiLSTM or Transformer based (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
 Perform evaluation of the model on the test set. 
 This will return the sacrebleu score on the validation and test set based on the highest validation score the model got during training.
 ```
