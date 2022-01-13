@@ -1,12 +1,12 @@
 
-name: "again_300_trans"
+name: "transformer_bpe"
 
 data:
     src: "zh"
     trg: "yue"
-    train: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/train"
-    dev: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/valid"
-    test: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/test"
+    train: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/train"
+    dev: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/valid"
+    test:  "/yue_nmt/bitext_mining/data/bitext_and_ud/split/test"
     level: "bpe"
     lowercase: False
     max_sent_length: 250
@@ -37,7 +37,7 @@ training:
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/models/zhyue_transformer_300"
+    model_dir: "/yue_nmt/bitext_mining/data/bitext_and_ud/models/transformer_bpe"
     overwrite: True
     shuffle: True
     use_cuda: True
