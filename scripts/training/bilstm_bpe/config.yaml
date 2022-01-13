@@ -36,7 +36,7 @@ training:
     validation_freq: 200
     logging_freq: 200
     eval_metric: "bleu"
-    model_dir: "/yue_nmt/bitext_mining/data/bitext_and_ud/models/bilstm_bpe/"
+    model_dir: "/yue_nmt/models/bilstm_bpe/"
     overwrite: True
     shuffle: True
     use_cuda: True
