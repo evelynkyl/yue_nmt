@@ -1,39 +1,40 @@
+# Strong baseline
 
-name: "seventh_2_lstm"
+name: "bilstm_strongbaseline"
 
 data:
     src: "zh"
     trg: "yue"
-    train: "/content/drive/MyDrive/rd_data/ud/tokenized/train"
-    dev: "/content/drive/MyDrive/rd_data/ud/tokenized/valid"
-    test:  "/content/drive/MyDrive/rd_data/ud/tokenized/test"
+    train: "/yue_nmt/data/ud/train"
+    dev: "/yue_nmt/data/ud/valid"
+    test: "/yue_nmt/data/ud/test"
     level: "word" 
     lowercase: False
-    max_sent_length: 160            # Extend to longer sentences.
+    max_sent_length: 160 
     src_voc_min_freq: 1
     trg_voc_min_freq: 1
    
 testing:
-    beam_size: 5 #10
+    beam_size: 5
     alpha: 1.0
 
 training:
     random_seed: 42
     optimizer: "adam"
-    learning_rate: 0.0003 #0.0002
+    learning_rate: 0.0003
     learning_rate_min: 0.0000005
     batch_size: 64
-    scheduling: "noam"      # ReduceLROnPlateau(optimizer, 'min', patience=150, factor=0.1, min_lr=1e-8)  # Using ReduceLROnPlateau schedule
-    patience: 5               #4      # For plateau: decrease learning rate by decrease_factor if validation score has not improved for this many validation rounds.
-    learning_rate_factor: 0.5       # factor for Noam scheduler (used with Transformer)
-    learning_rate_warmup: 1000      # warmup steps for Noam scheduler (used with Transformer)
-    decrease_factor: 0.5 #decrease_factor: 0.7
+    scheduling: "noam"
+    patience: 5
+    learning_rate_factor: 0.5
+    learning_rate_warmup: 1000
+    decrease_factor: 0.5
     early_stopping_metric: "eval_metric"
     epochs: 800
     validation_freq: 200
     logging_freq: 200
     eval_metric: "bleu"
-    model_dir: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/models/ud_only/word_lstm_seventh_2/"
+    model_dir: "/yue_nmt/models/bilstm_strongbaseline"
     overwrite: True
     shuffle: True
     use_cuda: False
@@ -44,24 +45,23 @@ model:
     encoder:
         rnn_type: "lstm"
         embeddings: 
-            embedding_dim: 64 #16
+            embedding_dim: 64
             scale: False 
-        hidden_size: 128 #64
+        hidden_size: 128
         bidirectional: True
-        dropout: 0.3 #0.25
+        dropout: 0.3
         num_layers: 1
     decoder:
         rnn_type: "lstm"
         embeddings:
-            embedding_dim: 64 #16
+            embedding_dim: 64
             scale: False
         emb_scale: False
-        hidden_size: 128 #64
-        dropout: 0.3 #0.25
-        hidden_dropout: 0.3 #0.1
+        hidden_size: 128
+        dropout: 0.3
+        hidden_dropout: 0.3
         num_layers: 1
         input_feeding: True
-        init_hidden: "bridge" #last
-        attention: "bahdanau" #luong
-
+        init_hidden: "bridge"
+        attention: "bahdanau"
 
