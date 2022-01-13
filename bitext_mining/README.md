@@ -9,7 +9,7 @@
 ### 3. Extract the downloaded Wikipedia data
 ```
 !mkdir ~/bitext_mining/data
-!tar -xzvf XLM_wiki_zh_yue_text.tar.gz /rd_nmt/bitext_mining/data
+!tar -xzvf XLM_wiki_zh_yue_text.tar.gz /yue_nmt/bitext_mining/data
 ```
 ## Implementation
 The following steps show the steps to perform the parallel sentence mining in the project.
