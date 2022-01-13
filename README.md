@@ -27,7 +27,7 @@ The development of NLP applications for Cantonese, a language with over 85 milli
 | BiLSTM<sub>bpe</sub> +PSM | 13.22 |
 | Transformer<sub>word</sub> +PSM | 3.56 |
 | Transformer<sub>bpe</sub> +PSM | 11.66 |
-| RELMadap + PSM | 1.85 |
+| RELM<sub>adap</sub> + PSM | 1.85 |
 
 
 ##  Parallel Sentence Mining
