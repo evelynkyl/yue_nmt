@@ -2,7 +2,7 @@
 
 This repo provides the implentation scripts in the project, as well as the synthetic data generated via bitext mining.
 
-The development of NLP applications for Cantonese, a language with over 85 million speakers, is lagging compared to other languages with a similar number of speakers. In this paper, we present, to our best knowledge, the first benchmark of multiple neural machine translation (NMT) systems between Cantonese and Mandarin Chinese. Secondly, we performed parallel sentence mining as data augmentation for the extremely low resource language pair and increased the number of sentence pairs by 3480% (1,002 to 35,877). Results show that with the parallel sentence mining technique, the best performing model (BPE-level bidirectional LSTM) scored 11.98 BLEU better than the vanilla baseline and 9.93 BLEU higher than our strong baseline. Thirdly, we evaluated the quality of the translated texts using modern texts and historical texts to investigate the models' ability to translate historical texts. Finally, we provide the first large-scale parallel training dataset of the language pair (post-sentence mining) as well as an evaluation dataset comprising Cantonese, Mandarin, and Literary Chinese for future research.
+The development of NLP applications for Cantonese, a language with over 85 million speakers, is lagging compared to other languages with a similar number of speakers. This project is, to my best knowledge, the first benchmark of multiple neural machine translation (NMT) systems of Cantonese. Secondly, I performed parallel sentence mining as data augmentation for the extremely low resource language pair (Cantonese-Mandarin) and increased the number of sentence pairs by 3480% (1,002 to 35,877). Results show that with the parallel sentence mining technique, the best performing model (BPE-level bidirectional LSTM) scored 11.98 BLEU better than the vanilla baseline and 9.93 BLEU higher than our strong baseline. Thirdly, we evaluated the quality of the translated texts using modern texts and historical texts to investigate the models' ability to translate historical texts. Finally, we provide the first large-scale parallel training dataset of the language pair (post-sentence mining) as well as an evaluation dataset comprising Cantonese, Mandarin, and Literary Chinese for future research.
 
 ## Key implementations in the project
 1. Bidirectional LSTM (BiLSTM) MT
@@ -13,17 +13,21 @@ The development of NLP applications for Cantonese, a language with over 85 milli
     - BPE-level
 3. Unsupervised NMT via Language Model Pretraining and Transfer Learning
 
-For the baseline models, we only used existing parallel data of Cantonese and Mandarin Chinese (UD data), while for the experimental models we used both the UD data and synthetic data generated via bitext mining.
+## Bitext mining /Parallel Sentence Mining (PSM)
+The scripts for bitext mining can be found [here](https://github.com/evelynkyl/yue_nmt/tree/main/bitext_mining).
+It will perform parallel sentence mining from Wikipedia backup files, concatenate the UD synthetic data & the synthetic dataset, and finally generate a pickle file of the combined dataset.
 
-## Bitext mining
-The scripts for bitext mining is in here. [add link]
-It will generate a pickle file comprised of the UD data and synthetic data from the mining.
+## Data
+|  Model   | Data    |  Size (Sentence pair)   |  Ratio (Train/Validation/Test) |
+| --------  | ------- | ------------------------| ------------------------------ |
+| Baseline |  [Parallel data of Cantonese and Mandarin Chinese](https://github.com/UniversalDependencies/UD_Cantonese-HK) (UD) | 1,002 | 80/10/10 |
+| Experimental models | UD+PSM | 35,877 | 68/15/17 |
 
 ## Model training
 ### Preliminary
 1. Split data into training, evaluation, and test sets
 ```
-!mkdir /rd_nmt/bitext_mining/data/bitext_and_ud/split
+!mkdir /yue_nmt/bitext_mining/data/bitext_and_ud/split
 !python3 split_data.py
 ```
 2. Install dependencies for model training
@@ -41,15 +45,13 @@ It will generate a pickle file comprised of the UD data and synthetic data from 
 !cd ~
 ```
 ### Implentation
-Scripts of the model parameters can be found in /rd_nmt/scripts/training
-##### BiLSTM or Transformer based (via JoeyNMT)
-""" TODO: rename the variables inside the JoeyNMT yaml script 
-"""
+Scripts of the model parameters can be found in [/yue_nmt/scripts/training](https://github.com/evelynkyl/yue_nmt/tree/main/scripts/training)
+##### BiLSTM or Transformer based (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
 Train a model by running the command below
 ```
 !python3 -m joeynmt train {config.yaml}
 ```
-##### Transfer learning (via XLM)
+##### Transfer learning (via RELM)
 ```
 
 
@@ -59,7 +61,7 @@ Train a model by running the command below
 Perform evaluation of the model on the test set. 
 This will return the sacrebleu score on the validation and test set based on the highest validation score the model got during training.
 ```
-!python -m joeynmt test {modelname_config.yaml} --output_path /models/modelname_predictions
+!python -m joeynmt test {modelname_config.yaml} --output_path /yue_nmt/models/modelname_predictions
 ```
 
 ### Inference
