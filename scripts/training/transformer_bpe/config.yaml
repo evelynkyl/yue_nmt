@@ -37,7 +37,7 @@ training:
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "/yue_nmt/bitext_mining/data/bitext_and_ud/models/transformer_bpe"
+    model_dir: "/yue_nmt/models/transformer_bpe"
     overwrite: True
     shuffle: True
     use_cuda: True
