@@ -31,7 +31,7 @@ def df_to_txt(some_df, lang="yue", save_as="comparable_wiki.txt"):
       
             
 def main():
-    datapath = "/rd_nmt/bitext_mining/data"
+    datapath = "/yue_nmt/bitext_mining/data"
     # load the data
     yue_wiki = read_txt_to_list_of_string(datapath)
     zh_wiki = read_txt_to_list_of_string(datapath)
