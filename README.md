@@ -16,7 +16,7 @@ The development of NLP applications for Cantonese, a language with over 85 milli
           - BPE represenation
     3. Unsupervised NMT via Language Model Pre-training and Transfer Learning
 
-*Note: The script of finetuning mBART is also included; however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
+*Note: The script of finetuning mBART can be found [here](https://github.com/evelynkyl/yue_nmt/blob/main/failed_attempt_mnmt/mbart_finetune_yue.sh); however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
 
 ## Result
 |  Model          | SacreBLEU  | 
