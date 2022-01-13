@@ -80,12 +80,12 @@ Please refer to [UNMT_via_RELM](https://github.com/evelynkyl/yue_nmt/UNMT_via_RE
 Perform evaluation of the model on the test set. 
 This will return the sacrebleu score on the validation and test set based on the highest validation score the model got during training.
 ```
-!python -m joeynmt test {modelname_config.yaml} --output_path /yue_nmt/models/modelname_predictions
+python3 -m joeynmt test {modelname_config.yaml} --output_path /yue_nmt/models/modelname_predictions
 ```
 
 ### Inference
 #### BiLSTM or Transformer (via [JoeyNMT](https://github.com/joeynmt/joeynmt))
 ```
 # file translation
-!python3 -m joeynmt translate {modelname_config.yaml} < literary_goldref_zh_bpe.txt --output_path eval_literary_translated_yue.txt
+python3 -m joeynmt translate {modelname_config.yaml} < literary_goldref_zh_bpe.txt --output_path eval_literary_translated_yue.txt
 ```
