@@ -4,7 +4,7 @@
 ### 1. Clone the repository
 ### 2. Install dependencies
 ```
-!pip3 install -r /rd_nmt/bitext_mining/scripts/requirements.txt
+!pip3 install -r /yue_nmt/bitext_mining/scripts/requirements.txt
 ```
 ### 3. Extract the downloaded Wikipedia data
 ```
@@ -30,7 +30,7 @@ Output the concatenated data as a pickle file
 # unzip the mined file
 !gunzip -k parallel-sentences-out.tsv.gz
 # load the existing parallel corpus (UD)
-!tar -xvzf /rd_nmt/data/ud/zh-yue_data.tar.gz  /rd_nmt/bitext_mining/data/UD
-!mkdir /rd_nmt/bitext_mining/data/bitext_and_ud/
+!tar -xvzf /yue_nmt/data/ud/zh-yue_data.tar.gz  /rd_nmt/bitext_mining/data/UD
+!mkdir /yue_nmt/bitext_mining/data/bitext_and_ud/
 !python3 combine_data.py
 ```
