@@ -33,7 +33,7 @@ training:
     validation_freq: 200
     logging_freq: 200
     eval_metric: "bleu"
-    model_dir: "/yue_nmt/models/bitext_and_ud/bilstm_word"
+    model_dir: "/yue_nmt/models/bilstm_word"
     overwrite: True
     shuffle: True
     use_cuda: True
