@@ -1,12 +1,12 @@
 
-name: "word_copy_2_trans"
+name: "transformer_word"
 
 data:
     src: "zh"
     trg: "yue"
-    train: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/train"
-    dev: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/tokens_new/valid"
-    test: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/test" #detokenized
+    train: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/train"
+    dev: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/valid"
+    test:  "/yue_nmt/bitext_mining/data/bitext_and_ud/split/test"
     level: "word"
     lowercase: False
     max_sent_length: 250
@@ -35,7 +35,7 @@ training:
     validation_freq: 1000
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "/content/drive/MyDrive/rd_data/ud_comparablewiki/bitext_ud_best/split/models/zhyue_transformer_copy_word_2"
+    model_dir: "/yue_nmt/bitext_mining/data/bitext_and_ud/models/transformer_word"
     overwrite: True
     shuffle: True
     use_cuda: True
