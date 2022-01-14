@@ -37,4 +37,4 @@ python3 combine_data.py
 ```
 
 ## Acknowledgement
-Our code is based on [LASER](https://github.com/facebookresearch/LASER). We thank the authors for sharing their great work.
+Our code of bitext mining (part 2) is based on [LASER](https://github.com/facebookresearch/LASER). We thank the authors for sharing their great work.
