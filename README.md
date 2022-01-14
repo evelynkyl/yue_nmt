@@ -30,8 +30,8 @@ The development of NLP applications for Cantonese, a language with over 85 milli
 | RELM<sub>adap</sub> + PSM | 1.85 |
 
 ## Pretrained models
-[BiLSTM<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/bilstm)
-[Transformer<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/transformer)
+- [BiLSTM<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/bilstm)
+- [Transformer<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/transformer)
 
 ##  Parallel Sentence Mining
 The scripts for Parallel Sentence Mining (PSM) (also known as bitext mining) can be found [here](https://github.com/evelynkyl/yue_nmt/tree/main/bitext_mining).
