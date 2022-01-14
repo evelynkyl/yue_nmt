@@ -1,0 +1,79 @@
+
+name: "transformer_bpe"
+
+data:
+    src: "zh"
+    trg: "yue"
+    train: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/train"
+    dev: "/yue_nmt/bitext_mining/data/bitext_and_ud/split/valid"
+    test:  "/yue_nmt/bitext_mining/data/bitext_and_ud/split/test"
+    level: "bpe"
+    lowercase: False
+    max_sent_length: 250
+    src_voc_min_freq: 1
+    trg_voc_min_freq: 1
+    src_voc_limit: 8000
+    trg_voc_limit: 8000
+   
+testing:
+    beam_size: 5
+    alpha: 1.0
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    adam_betas: [0.9, 0.999]
+    loss: "crossentropy"
+    learning_rate: 0.0002
+    learning_rate_min: 0.00000001
+    learning_rate_factor: 2
+    learning_rate_warmup: 4000
+    batch_type: "sentence"
+    weight_decay: 0.0
+    label_smoothing: 0.1
+    batch_size: 10
+    early_stopping_metric: "eval_metric"
+    epochs: 300
+    validation_freq: 1000
+    logging_freq: 100
+    eval_metric: "bleu"
+    model_dir: "/yue_nmt/models/transformer_bpe"
+    overwrite: True
+    shuffle: True
+    use_cuda: True
+    fp16: True
+    max_output_length: 200
+    print_valid_sents: [0, 1, 2, 3, 4]
+
+model:
+    initializer: "xavier"
+    embed_initializer: "xavier"
+    embed_init_gain: 1.0
+    init_gain: 1.0
+    bias_initializer: "zeros"
+    tied_embeddings: False
+    tied_softmax: False
+    encoder:
+      type: "transformer"
+      num_layers: 2
+      num_heads: 4
+      embeddings:
+        embedding_dim: 64
+        scale: True
+        dropout: 0.
+      hidden_size: 64
+      ff_size: 256
+      dropout: 0.1
+    decoder:
+      type: "transformer"
+      num_layers: 2
+      num_heads: 4
+      embeddings:
+        embedding_dim: 64
+        scale: True
+        dropout: 0.
+      hidden_size: 64
+      ff_size: 256
+      dropout: 0.1
+
+

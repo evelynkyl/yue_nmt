@@ -1,0 +1,67 @@
+# Strong baseline
+
+name: "bilstm_strongbaseline"
+
+data:
+    src: "zh"
+    trg: "yue"
+    train: "/yue_nmt/data/ud/train"
+    dev: "/yue_nmt/data/ud/valid"
+    test: "/yue_nmt/data/ud/test"
+    level: "word" 
+    lowercase: False
+    max_sent_length: 160 
+    src_voc_min_freq: 1
+    trg_voc_min_freq: 1
+   
+testing:
+    beam_size: 5
+    alpha: 1.0
+
+training:
+    random_seed: 42
+    optimizer: "adam"
+    learning_rate: 0.0003
+    learning_rate_min: 0.0000005
+    batch_size: 64
+    scheduling: "noam"
+    patience: 5
+    learning_rate_factor: 0.5
+    learning_rate_warmup: 1000
+    decrease_factor: 0.5
+    early_stopping_metric: "eval_metric"
+    epochs: 800
+    validation_freq: 200
+    logging_freq: 200
+    eval_metric: "bleu"
+    model_dir: "/yue_nmt/models/bilstm_strongbaseline"
+    overwrite: True
+    shuffle: True
+    use_cuda: False
+    max_output_length: 150
+    print_valid_sents: [0, 1, 2, 3]
+
+model:
+    encoder:
+        rnn_type: "lstm"
+        embeddings: 
+            embedding_dim: 64
+            scale: False 
+        hidden_size: 128
+        bidirectional: True
+        dropout: 0.3
+        num_layers: 1
+    decoder:
+        rnn_type: "lstm"
+        embeddings:
+            embedding_dim: 64
+            scale: False
+        emb_scale: False
+        hidden_size: 128
+        dropout: 0.3
+        hidden_dropout: 0.3
+        num_layers: 1
+        input_feeding: True
+        init_hidden: "bridge"
+        attention: "bahdanau"
+
