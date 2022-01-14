@@ -10,10 +10,10 @@ The development of NLP applications for Cantonese, a language with over 85 milli
 2. [NMT models training](#nmt-model-training)
     1. Bidirectional LSTM (BiLSTM) MT
           - word represenation
-          - **BPE represenation**
+          - **BPE represenation** (highest BLEU score)
     2. Transoformer MT
           - word represenation
-          - BPE represenation
+          - **BPE represenation** (best translation quality)
     3. Unsupervised NMT via Language Model Pre-training and Transfer Learning
 
 *Note: The script of finetuning mBART can be found [here](https://github.com/evelynkyl/yue_nmt/blob/main/failed_attempt_mnmt/mbart_finetune_yue.sh); however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
@@ -29,6 +29,9 @@ The development of NLP applications for Cantonese, a language with over 85 milli
 | Transformer<sub>bpe</sub> +PSM | 11.66 |
 | RELM<sub>adap</sub> + PSM | 1.85 |
 
+## Pretrained models
+[BiLSTM<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/bilstm)
+[Transformer<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/transformer)
 
 ##  Parallel Sentence Mining
 The scripts for Parallel Sentence Mining (PSM) (also known as bitext mining) can be found [here](https://github.com/evelynkyl/yue_nmt/tree/main/bitext_mining).
@@ -38,7 +41,7 @@ It will perform PSM from Wikipedia backup files, concatenate the UD synthetic da
 |  Model   | Data    |  Size (Sentence pair)   |  Ratio (Train/Validation/Test) |
 | --------  | ------- | ------------------------| ------------------------------ |
 | Baseline |  [Cantonese and Mandarin Chinese Parallel Corpus](https://github.com/UniversalDependencies/UD_Cantonese-HK) (UD) | 1,002 | 80/10/10 |
-| Experimental models | UD+PSM | 35,877 | 68/15/17 |
+| Experimental models | [UD+PSM](https://github.com/evelynkyl/yue_nmt/blob/main/data/ud_and_bitext/yue_zh_combined36k.pkl) | 35,877 | 68/15/17 |
 
 ## NMT Model Training
 ### Preliminary
