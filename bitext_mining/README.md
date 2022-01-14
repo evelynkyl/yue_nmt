@@ -35,3 +35,6 @@ tar -xvzf /yue_nmt/data/ud/zh-yue_data.tar.gz  /yue_nmt/bitext_mining/data/UD
 mkdir /yue_nmt/bitext_mining/data/bitext_and_ud/
 python3 combine_data.py
 ```
+
+## Acknowledgement
+Our code is based on [LASER](https://github.com/facebookresearch/LASER). We thank the authors for sharing their great work.
