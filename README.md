@@ -16,7 +16,7 @@ The development of NLP applications for Cantonese, a language with over 85 milli
           - **BPE represenation** (best translation quality)
     3. Unsupervised NMT via Language Model Pre-training and Transfer Learning
 
-*Note: The script of finetuning mBART can be found [here](https://github.com/evelynkyl/yue_nmt/blob/main/failed_attempt_mnmt/mbart_finetune_yue.sh); however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
+*Note: The script of finetuning mBART can be found [here](https://github.com/evelynkyl/yue_nmt/failed_attempt_mnmt/mbart_finetune_yue.sh); however it should be noted that this approach failed to perform on the unseen language (Cantonese) and resulted in a 0 BLEU score.
 
 ## Result
 |  Model          | SacreBLEU  | 
@@ -94,3 +94,12 @@ python3 -m joeynmt test {modelname_config.yaml} --output_path /yue_nmt/models/mo
 # file translation
 python3 -m joeynmt translate {modelname_config.yaml} < literary_goldref_zh_bpe.txt --output_path eval_literary_translated_yue.txt
 ```
+## License
+Yue_NMT is BSD-licensed, as found in the LICENSE file in the root directory of this source tree.
+
+## Acknowledgement
+The UD dataset is downloaded from [UD Cantonese](https://github.com/UniversalDependencies/UD_Cantonese-HK) based on the [Universal Dependecies Project](https://universaldependencies.org)
+Our code of bitext mining is based on [LASER](https://github.com/facebookresearch/LASER). 
+Our code of unsupverised NMT (RELM) is based on [RELM](https://github.com/alexandra-chron/relm_unmt). 
+
+We thank the authors for sharing their great work.
