@@ -3,7 +3,7 @@
 
 This repo provides the implentation scripts in the project, as well as the synthetic data generated via bitext mining.
 
-The development of NLP applications for Cantonese, a language with over 85 million speakers, is lagging compared to other languages with a similar number of speakers. This project is, to my best knowledge, the first benchmark of multiple neural machine translation (NMT) systems of Cantonese. Secondly, I performed parallel sentence mining as data augmentation for the extremely low resource language pair (Cantonese-Mandarin) and increased the number of sentence pairs by 3480% (1,002 to 35,877). Results show that with the parallel sentence mining technique, the best performing model (BPE-level bidirectional LSTM) scored 11.98 BLEU better than the vanilla baseline and 9.93 BLEU higher than our strong baseline. Thirdly, I evaluated the quality of the translated texts using modern texts and historical texts to investigate the models' ability to translate historical texts. Finally, we provide the first large-scale parallel training dataset of the language pair (post-sentence mining) as well as an evaluation dataset comprising Cantonese, Mandarin, and Literary Chinese for future research.
+The development of NLP applications for Cantonese, a language with over 85 million speakers, is lagging compared to other languages with a similar number of speakers. This project is, to my best knowledge, the first benchmark of multiple neural machine translation (NMT) systems of Cantonese. Secondly, I performed parallel sentence mining as data augmentation for the extremely low resource language pair (Cantonese-Mandarin) and increased the number of sentence pairs by 3480% (1,002 to 35,877). Results show that with the parallel sentence mining technique, the best performing model (BPE-level bidirectional LSTM) scored 11.98 BLEU better than the vanilla baseline and 9.93 BLEU higher than my strong baseline. Thirdly, I evaluated the quality of the translated texts using modern texts and historical texts to investigate the models' ability to translate historical texts. Finally, I provide the first large-scale parallel training dataset of the language pair (post-sentence mining) as well as an evaluation dataset comprising Cantonese, Mandarin, and Literary Chinese for future research.
 
 ## Key implementations in the project
 1. Data augumentation via [Parallel Sentence Mining (PSM)](#parallel-sentence-mining)
@@ -98,9 +98,9 @@ python3 -m joeynmt translate {modelname_config.yaml} < literary_goldref_zh_bpe.t
 Yue_NMT is BSD-licensed, as found in the LICENSE file in the root directory of this source tree.
 
 ## Acknowledgement
-The UD dataset is downloaded from [UD Cantonese](https://github.com/UniversalDependencies/UD_Cantonese-HK) based on the [Universal Dependecies Project](https://universaldependencies.org).
-The Literary-Modern Chinese evaluation dataset is manually translated based on [Ancient-Modern Chinese Translation with a New Large Training Dataset](https://github.com/dayihengliu/a2m_chineseNMT?utm_source=catalyzex.com).
-Our code of bitext mining is based on [LASER](https://github.com/facebookresearch/LASER). 
-Our code of unsupverised NMT (RELM) is based on [RELM](https://github.com/alexandra-chron/relm_unmt). 
+- The UD dataset is downloaded from [UD Cantonese](https://github.com/UniversalDependencies/UD_Cantonese-HK) based on the [Universal Dependecies Project](https://universaldependencies.org).
+- The Literary-Modern Chinese evaluation dataset is manually translated based on [Ancient-Modern Chinese Translation with a New Large Training Dataset](https://github.com/dayihengliu/a2m_chineseNMT?utm_source=catalyzex.com).
+- Our code of bitext mining is based on [LASER](https://github.com/facebookresearch/LASER). 
+- Our code of unsupverised NMT (RELM) is based on [RELM](https://github.com/alexandra-chron/relm_unmt). 
 
 We thank the authors for sharing their great work.
