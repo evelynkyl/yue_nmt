@@ -34,8 +34,8 @@ The development of NLP applications for Cantonese, a language with over 85 milli
 - [Transformer<sub>bpe</sub> +PSM](https://github.com/evelynkyl/yue_nmt/tree/main/models/transformer)
 
 ##  Parallel Sentence Mining
-The scripts for Parallel Sentence Mining (PSM) (also known as bitext mining) can be found [here](https://github.com/evelynkyl/yue_nmt/tree/main/bitext_mining).
-It will perform PSM from Wikipedia backup files, concatenate the UD synthetic data & the synthetic dataset, and finally generate a pickle file of the combined dataset.
+The scripts for Parallel Sentence Mining (PSM) (also known as bitext mining) can be found [here](https://github.com/evelynkyl/yue_nmt/bitext_mining).
+It will perform PSM from Wikipedia backup files, concatenate the UD data & the synthetic dataset, and finally generate a pickle file of the combined dataset.
 
 ## Data
 |  Model   | Data    |  Size (Sentence pair)   |  Ratio (Train/Validation/Test) |
