@@ -102,5 +102,5 @@ Yue_NMT is BSD-licensed, as found in the LICENSE file in the root directory of t
 - The Literary-Modern Chinese evaluation dataset is manually translated based on [Ancient-Modern Chinese Translation with a New Large Training Dataset](https://github.com/dayihengliu/a2m_chineseNMT?utm_source=catalyzex.com).
 - Our code of bitext mining is based on [LASER](https://github.com/facebookresearch/LASER). 
 - Our code of unsupverised NMT (RELM) is based on [RELM](https://github.com/alexandra-chron/relm_unmt). 
-
+- We used the awesome [JoeyNMT](https://github.com/joeynmt/joeynmt) for training some of the NMT models.
 We thank the authors for sharing their great work.
