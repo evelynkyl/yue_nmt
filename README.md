@@ -1,7 +1,8 @@
 # Extremely Low-Resource Neural Machine Translation: A Case Study of Cantonese
 [Result](#result) | [Data](#data) | [Parallel Sentence Mining](#parallel-sentence-mining) | [Model Training](#nmt-model-training)
 
-This repo provides the implentation scripts in the project, as well as the synthetic data generated via bitext mining.
+This repo provides the implentation scripts in the project, as well as the synthetic data generated via bitext mining. 
+You can find the paper [here](https://aclanthology.org/2022.vardial-1.4/).
 
 The development of NLP applications for Cantonese, a language with over 85 million speakers, is lagging compared to other languages with a similar number of speakers. This project is, to my best knowledge, the first benchmark of multiple neural machine translation (NMT) systems of Cantonese. Secondly, I performed parallel sentence mining as data augmentation for the extremely low resource language pair (Cantonese-Mandarin) and increased the number of sentence pairs by 3480% (1,002 to 35,877). Results show that with the parallel sentence mining technique, the best performing model (BPE-level bidirectional LSTM) scored 11.98 BLEU better than the vanilla baseline and 9.93 BLEU higher than my strong baseline. Thirdly, I evaluated the quality of the translated texts using modern texts and historical texts to investigate the models' ability to translate historical texts. Finally, I provide the first large-scale parallel training dataset of the language pair (post-sentence mining) as well as an evaluation dataset comprising Cantonese, Mandarin, and Literary Chinese for future research.
 
